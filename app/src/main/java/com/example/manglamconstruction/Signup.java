@@ -1,5 +1,6 @@
 package com.example.manglamconstruction;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +22,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class Signup extends AppCompatActivity implements View.OnClickListener {
     private FirebaseAuth mAuth;
     EditText mail, pass, confrmpass;
-    ProgressBar progressBar;
+    ProgressDialog dialog;
     Button b1,b2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,15 +64,17 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
             confrmpass.setError("Password Incorrect");
             confrmpass.requestFocus();return;
         }
-        progressBar = findViewById(R.id.progressBar);
-        progressBar.setVisibility(View.VISIBLE);
+        dialog=new ProgressDialog(this);
+        dialog.show();
+        dialog.setMessage("Loading");
+        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Log.i("info", "createUserWithEmail:success");
-                            progressBar.setVisibility(View.GONE);
+                            dialog.dismiss();
                             Intent intent=new Intent(Signup.this,Login.class);
                             startActivity(intent);
                             Toast.makeText(Signup.this, "User Registered Successfully", Toast.LENGTH_SHORT).show();}
@@ -83,7 +86,7 @@ public class Signup extends AppCompatActivity implements View.OnClickListener {
                            {
                                Toast.makeText(Signup.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                            }
-                           progressBar.setVisibility(View.GONE);
+                           dialog.dismiss();
                         }
 
                     }

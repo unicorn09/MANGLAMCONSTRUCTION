@@ -1,5 +1,6 @@
 package com.example.manglamconstruction;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -20,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class Login extends AppCompatActivity implements View.OnClickListener {
     private FirebaseAuth mAuth;
     EditText mail, pass;
-    ProgressBar progressBar;
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +31,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         findViewById(R.id.btnlogin).setOnClickListener(this);
         mail=findViewById(R.id.editTextEmail);
         pass=findViewById(R.id.editTextPassword);
-        progressBar = findViewById(R.id.progressBar1);
         mAuth = FirebaseAuth.getInstance();
     }
 
@@ -49,13 +49,16 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             pass.setError("Password too short");
             pass.requestFocus();return;
         }
-        progressBar.setVisibility(View.VISIBLE);
+        progressDialog=new ProgressDialog(this);
+        progressDialog.show();
+        progressDialog.setMessage("Loading...");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            progressBar.setVisibility(View.GONE);
-                            Toast.makeText(Login.this, "Successful Log In", Toast.LENGTH_SHORT).show();
+                            progressDialog.dismiss();
+                            Toast.makeText(Login.this, "Log in Successful", Toast.LENGTH_SHORT).show();
                             Intent i=new Intent(Login.this,projects.class);
                             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(i);
@@ -80,7 +83,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             }
             case R.id.btnlogin:
             {
-                Toast.makeText(this, "Hi", Toast.LENGTH_SHORT).show();
                 enteraccount();
                 break;
             }
