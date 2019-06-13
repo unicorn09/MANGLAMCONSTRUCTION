@@ -30,7 +30,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         findViewById(R.id.btnlogin).setOnClickListener(this);
         mail=findViewById(R.id.editTextEmail);
         pass=findViewById(R.id.editTextPassword);
-        progressBar = findViewById(R.id.progressBar);
+        progressBar = findViewById(R.id.progressBar1);
         mAuth = FirebaseAuth.getInstance();
     }
 
@@ -57,7 +57,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                             progressBar.setVisibility(View.GONE);
                             Toast.makeText(Login.this, "Successful Log In", Toast.LENGTH_SHORT).show();
                             Intent i=new Intent(Login.this,projects.class);
-                            //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(i);
                         } else {
                             Log.w("info",task.getException().getMessage(), task.getException());
