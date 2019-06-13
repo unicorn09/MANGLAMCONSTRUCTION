@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "107497404575",
+    "firebase_url": "https://manglamconstruction-1cadb.firebaseio.com",
+    "project_id": "manglamconstruction-1cadb",
+    "storage_bucket": "manglamconstruction-1cadb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107497404575:android:70dbd69e80638237",
+        "android_client_info": {
+          "package_name": "com.example.manglamconstruction"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "107497404575-94ihpdc6cjqfds5tcor6fcr8hpgfg8e0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.manglamconstruction",
+            "certificate_hash": "20fa7ecca4a174b90854e3347536eedabd2ebaad"
+          }
+        },
+        {
+          "client_id": "107497404575-c01utd4rqleprmplcr6b8qih3p7431in.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSaBHL42ogQbk8391Cs2sQIgWoMvtWRB0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "107497404575-c01utd4rqleprmplcr6b8qih3p7431in.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

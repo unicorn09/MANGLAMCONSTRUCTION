@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:id="@+id/activitysignup"
+    tools:context=".Login">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        app:srcCompat="@drawable/splash" />
+
+    <EditText
+        android:id="@+id/editTextEmailsignup"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_margin="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/shapeemail"
+        android:drawableLeft="@drawable/ic_person_black_24dp"
+        android:drawablePadding="10dp"
+        android:hint="Username"
+
+        android:padding="15dp"
+        android:textColor="@color/black"
+        android:textColorHighlight="#FDFDFD"
+        android:textColorHint="@color/black" />
+
+    <EditText
+        android:id="@+id/editTextPasswordsignup"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shapeemail"
+        android:drawableLeft="@drawable/ic_lock_black_24dp"
+        android:drawablePadding="10dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="15dp"
+        android:textColor="@color/black"
+        android:textColorHighlight="#FDFDFD"
+        android:textColorHint="@color/black" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="150dp"
+        android:visibility="gone"/>
+
+    <EditText
+        android:id="@+id/editTextCnfrmPasswordsignup"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_margin="10dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shapeemail"
+        android:drawableLeft="@drawable/ic_lock_black_24dp"
+        android:drawablePadding="10dp"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        android:padding="15dp"
+        android:textColor="@color/black"
+        android:textColorHighlight="#FDFDFD"
+        android:textColorHint="@color/black" />
+
+
+    <Button
+        android:id="@+id/btnsignup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/shapesignup"
+        android:elevation="8mm"
+        android:padding="15dp"
+        android:shadowColor="@android:color/transparent"
+        android:text="Sign Up "
+        android:textColor="#F7F3F3" />
+
+    <Button
+        android:id="@+id/btnGsignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/shapesignup"
+        android:elevation="8mm"
+        android:padding="15dp"
+        android:shadowColor="@android:color/transparent"
+        android:text="Signup with Google"
+        android:textColor="#F7F3F3" />
+
+    <TextView
+        android:id="@+id/edittextlogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:fontFamily="@font/chelsea_market"
+        android:onClick="onClick"
+        android:text="Already have an account?"
+        android:textColor="@color/black" />
+
+</LinearLayout>
