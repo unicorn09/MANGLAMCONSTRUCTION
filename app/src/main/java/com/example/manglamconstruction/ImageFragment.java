@@ -7,11 +7,22 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class ImageFragment extends Fragment {
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_images,null);
+        View v=inflater.inflate(R.layout.fragment_images,null);
+        Button imagebtn=v.findViewById(R.id.button2);
+        imagebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "Available Soon", Toast.LENGTH_SHORT).show();
+            }
+        });
+        return v;
     }
 }

@@ -27,12 +27,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         super.onCreate(savedInstanceState);
         mAuth=FirebaseAuth.getInstance();
-        /*if(mAuth.getCurrentUser()!=null){
+        if(mAuth.getCurrentUser()!=null){
             finish();
             Intent i = new Intent(Login.this, Home.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);
-        }*/
+        }
         setContentView(R.layout.activity_login);
         mAuth = FirebaseAuth.getInstance();
         findViewById(R.id.btncreateaccnt).setOnClickListener(this);
@@ -59,7 +59,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         }
         progressDialog=new ProgressDialog(this);
         progressDialog.show();
-        progressDialog.setMessage("Loading...");
+        progressDialog.setMessage("Logging In...");
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -68,7 +68,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                             progressDialog.dismiss();
                             Toast.makeText(Login.this, "Log in Successful", Toast.LENGTH_SHORT).show();
                             Intent i=new Intent(Login.this,Home.class);
-                            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(i);
                         } else {
                             Log.w("info",task.getException().getMessage(), task.getException());

@@ -7,11 +7,23 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class MyProfileFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_myprofile,null);
+        View v = inflater.inflate(R.layout.fragment_myprofile, null);
+        Button profilebtn = v.findViewById(R.id.button3);
+        profilebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "Available Soon", Toast.LENGTH_SHORT).show();
+            }
+        });
+        return v;
+
     }
 }
+
