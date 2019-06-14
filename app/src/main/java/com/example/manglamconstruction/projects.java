@@ -1,5 +1,6 @@
 package com.example.manglamconstruction;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class projects extends AppCompatActivity implements View.OnClickListener {
     Button sgnout;
+    ProgressDialog prgd;
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,17 +31,13 @@ public class projects extends AppCompatActivity implements View.OnClickListener 
         {
             case R.id.btnsignout:
             {
-                Toast.makeText(this, "button pressed", Toast.LENGTH_SHORT).show();
-                signout();
-                break;
+                prgd=new ProgressDialog(this);
+                prgd.show();
+                FirebaseAuth.getInstance().signOut();
+                Intent i=new Intent(this,Login.class);
+                prgd.dismiss();
+                startActivity(i);
             }
         }
-    }
-
-    public void signout() {
-        FirebaseAuth.getInstance().signOut();
-        Intent i=new Intent(this,Login.class);
-        startActivity(i);
-
     }
 }

@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">MANGLAM CONSTRUCTION</string>
+    <string name="app_name">MANGALAM CONSTRUCTION</string>
+    <string name="title_activity_home">Home</string>
+    <string name="title_home">Home</string>
+    <string name="title_images">Images</string>
+    <string name="title_myprofile">My Profile</string>
 </resources>

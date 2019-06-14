@@ -16,7 +16,7 @@ public class splash extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.raw_music_splash);
-        mediaPlayer.start();
+        //mediaPlayer.start();
         TextView Text2=(TextView)findViewById(R.id.textView2);
         Text2.setOnClickListener(this);
 
