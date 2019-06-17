@@ -71,6 +71,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                             i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(i);
                         } else {
+                            progressDialog.dismiss();
                             Log.w("info",task.getException().getMessage(), task.getException());
                             Toast.makeText(Login.this, task.getException().getMessage(),
                                     Toast.LENGTH_SHORT).show();

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -21,14 +22,15 @@ public class list_adapter extends RecyclerView.Adapter<list_adapter.ViewHolder> 
     }
     public class ViewHolder extends RecyclerView.ViewHolder
     {
-        TextView address;
-        public ViewHolder(@NonNull View itemView) {
+        TextView address,number;
+        public ViewHolder(@NonNull final View itemView) {
             super(itemView);
             address=itemView.findViewById(R.id.tv_address);
+            number=itemView.findViewById(R.id.projectnumber);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    Toast.makeText(itemView.getContext(), "clicked item is "+address.toString(), Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -46,6 +48,7 @@ public class list_adapter extends RecyclerView.Adapter<list_adapter.ViewHolder> 
 
        viewHolder.itemView.setTag(list1.get(i));
        viewHolder.address.setText(list1.get(i).getName());
+       viewHolder.number.setText(list1.get(i).getNum());
     }
 
     @Override
